@@ -7,7 +7,7 @@ done
 
 for FILENAME in $(find $DOTFILES -type f -printf '%P\n')
 do
-    DOTFILE=$DOTFILES$FILENAME
+    DOTFILE=$DOTFILES/$FILENAME
     ORIGINAL_FILE=$HOME/$FILENAME
     if [ ! $ORIGINAL_FILE -ef $DOTFILE ] ; then
         [ -e $ORIGINAL_FILE ] && mv $ORIGINAL_FILE $ORIGINAL_FILE.local

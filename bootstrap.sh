@@ -1,11 +1,15 @@
 DOTFILES=$(pwd)/dotfiles
 
-for SUBDIR in $(find $DOTFILES -type d -printf '%P\n')
+function list_dotfile_contents {
+    find $DOTFILES -type $1 -printf '%P\n'
+}
+
+for SUBDIR in $(list_dotfile_contents d)
 do
     mkdir -p $HOME/$SUBDIR
 done
 
-for FILENAME in $(find $DOTFILES -type f -printf '%P\n')
+for FILENAME in $(list_dotfile_contents f)
 do
     DOTFILE=$DOTFILES/$FILENAME
     ORIGINAL_FILE=$HOME/$FILENAME

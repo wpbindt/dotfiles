@@ -1,0 +1,2 @@
+# dotfiles
+Configuration files for Unix-like systems. The bootstrap script replaces local configuration files with symlinks to the ones in this repository, and puts the local versions in files like `~/.zshrc.local`. To set this up, run `$ bash bootstrap.sh`. This script should be run when new dotfiles are added, but otherwise updating the logfiles should amount to running `git pull` in the dotfiles repo.

@@ -41,5 +41,3 @@ alias datetime="/bin/date"
 alias gp="git push"
 alias gs="git status"
 
-# Move to zshenv
-export SERVER_IP=109.237.219.178

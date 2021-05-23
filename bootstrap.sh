@@ -29,10 +29,10 @@ function add_midnight_cron_job {
     set +o noglob
 }
 
-function update_automatically {
+function set_up_auto_pull {
     pull_command="$(which git) --git-dir=$(pwd)/.git --work-tree=$(pwd) pull -q"
     add_midnight_cron_job "$pull_command"
 }
 
-update_automatically
+set_up_auto_pull
 

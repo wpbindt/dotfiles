@@ -20,14 +20,19 @@ do
     fi
 done
 
-function add_cron_job {
-    pull_command="$(which git) --git-dir=$(pwd)/.git pull -q"
-    cron_job="49 0 * * * $pull_command"
-
+function add_midnight_cron_job {
     set -o noglob
-    echo $cron_job | crontab -
+    # prevent duplication and clobbering by using
+    # crontab -l, sort, and uniq
+    (crontab -l ; echo "0 0 * * * $1") \
+        | sort - | uniq - | crontab -
     set +o noglob
 }
 
-add_cron_job
+function update_automatically {
+    pull_command="$(which git) --git-dir=$(pwd)/.git pull -q"
+    add_midnight_cron_job "$pull_command"
+}
+
+update_automatically
 

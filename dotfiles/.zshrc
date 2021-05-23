@@ -32,6 +32,7 @@ alias q="exit"
 alias pls="sudo"
 alias ls="ls --color=always"
 alias rm="rm -i"
+alias mv="mv -i"
 
 alias firefox="firefox 2>/dev/null 1>/dev/null &"
 

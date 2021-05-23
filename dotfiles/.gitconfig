@@ -3,4 +3,6 @@
 	name = wpbindt
 [pull]
 	rebase = false
+[include]
+	path = ~/.gitconfig.local
 

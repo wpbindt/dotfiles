@@ -20,3 +20,14 @@ do
     fi
 done
 
+function add_cron_job {
+    pull_command="$(which git) --git-dir=$(pwd)/.git pull -q"
+    cron_job="49 0 * * * $pull_command"
+
+    set -o noglob
+    echo $cron_job | crontab -
+    set +o noglob
+}
+
+add_cron_job
+

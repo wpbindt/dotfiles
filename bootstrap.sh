@@ -30,7 +30,7 @@ function add_midnight_cron_job {
 }
 
 function update_automatically {
-    pull_command="$(which git) --git-dir=$(pwd)/.git pull -q"
+    pull_command="$(which git) --git-dir=$(pwd)/.git --work-tree=$(pwd) pull -q"
     add_midnight_cron_job "$pull_command"
 }
 

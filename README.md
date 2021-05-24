@@ -1,5 +1,9 @@
 # dotfiles
-Configuration files for stuff on Linux. To set this up, run `$ ./bootstrap.sh`. This script does the following:
+Configuration files for stuff on Linux. To set this up, run 
+```
+$ /wherever/you/cloned/this/repo/to/bootstrap.sh
+```
+This script does the following:
 - back up local config files `.some_config` to `.some_config.local` in the same directory
 - replace the local config files with symlinks to the config files in the repo
 - add a daily cron job to pull this repo, to keep the config files up to date

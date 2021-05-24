@@ -1,22 +1,24 @@
+#!/bin/bash
 dotfiles=$(pwd)/dotfiles
 
 function list_dotfile_contents {
-    find $dotfiles -type $1 -printf '%P\n'
+    find "$dotfiles" -type "$1" -printf '%P\n'
 }
 
 for subdir in $(list_dotfile_contents d)
 do
-    mkdir -p $HOME/$subdir
+    mkdir -p "$HOME/$subdir"
 done
 
 for filename in $(list_dotfile_contents f)
 do
     dotfile=$dotfiles/$filename
     original_file=$HOME/$filename
-    if [ ! $original_file -ef $dotfile ] ; then
-        [ -e $original_file ] && mv $original_file $original_file.local
-        touch $original_file.local
-        ln -s $dotfile $original_file
+    local_file=$original_file.local
+    if [ ! "$original_file" -ef "$dotfile" ] ; then
+        [ -e "$original_file" ] && mv "$original_file" "$local_file"
+        touch "$local_file"
+        ln -s "$dotfile" "$original_file"
     fi
 done
 
@@ -30,7 +32,7 @@ function add_midnight_cron_job {
 }
 
 function set_up_auto_pull {
-    pull_command="$(which git) --git-dir=$(pwd)/.git --work-tree=$(pwd) pull -q"
+    pull_command="$(command -v git) --git-dir=$(pwd)/.git --work-tree=$(pwd) pull -q"
     add_midnight_cron_job "$pull_command"
 }
 

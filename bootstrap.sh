@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
-dotfiles=$(pwd)/dotfiles
+repo=$(cd "$(dirname "$0")"; pwd)
+dotfiles="$repo/dotfiles"
 
 function list_dotfile_contents {
     find "$dotfiles" -type "$1" -printf '%P\n'
@@ -32,7 +33,7 @@ function add_midnight_cron_job {
 }
 
 function set_up_auto_pull {
-    pull_command="$(command -v git) --git-dir=$(pwd)/.git --work-tree=$(pwd) pull -q"
+    pull_command="$(command -v git) --git-dir=$repo/.git --work-tree=$repo pull -q"
     add_midnight_cron_job "$pull_command"
 }
 

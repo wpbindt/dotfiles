@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 dotfiles=$(pwd)/dotfiles
 
 function list_dotfile_contents {

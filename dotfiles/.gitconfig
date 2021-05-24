@@ -5,4 +5,8 @@
 	rebase = false
 [include]
 	path = ~/.gitconfig.local
+[color]
+    ui = true
+[core]
+    pager = less -r
 

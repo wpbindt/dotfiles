@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eu
+set -e
 set -o pipefail
 repo=$(cd "$(dirname "$0")"; pwd)
 dotfiles="$repo/dotfiles"

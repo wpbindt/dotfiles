@@ -11,3 +11,5 @@ This script does the following:
 Where possible, the config files in this repo include the locally backed up versions. For example, `.zshrc` contains the line `source "$HOME/.zshrc.local"`. 
 
 The script is idempotent by design; running it twice without adding files to the repo in between the runs should not be any different from running it just once. However, when new files are added to `dotfiles/dotfiles`, it should be run again for this to take effect.
+
+To do a dry run, run the script with any argument, e.g., `./bootstrap.sh bla`.

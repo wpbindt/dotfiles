@@ -28,8 +28,8 @@ function add_midnight_cron_job {
     set -o noglob
     # prevent duplication and clobbering by using
     # crontab -l, sort, and uniq
-    (crontab -l ; echo "0 0 * * * $1") \
-        | sort - | uniq - | crontab -
+    commands+=("(crontab -l ; echo '0 0 * * * $1') \
+        | sort - | uniq - | crontab -")
     set +o noglob
 }
 
@@ -42,5 +42,11 @@ set_up_auto_pull
 
 for cmd in "${commands[@]}"
 do
+    set -o noglob
     echo $cmd
+    if [ -z $1 ] ; then
+        eval $cmd
+    fi
+    set +o noglob
 done
+

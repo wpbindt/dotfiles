@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+set -eu
+set -o pipefail
 repo=$(cd "$(dirname "$0")"; pwd)
 dotfiles="$repo/dotfiles"
 

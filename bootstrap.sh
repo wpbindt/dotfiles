@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 repo=$(cd "$(dirname "$0")"; pwd)
 dotfiles="$repo/dotfiles"
+commands=()
 
 function list_dotfile_contents {
     find "$dotfiles" -type "$1" -printf '%P\n'
@@ -8,7 +9,7 @@ function list_dotfile_contents {
 
 for subdir in $(list_dotfile_contents d)
 do
-    mkdir -p "$HOME/$subdir"
+    commands+=("mkdir -p "$HOME/$subdir"")
 done
 
 for filename in $(list_dotfile_contents f)
@@ -17,9 +18,9 @@ do
     original_file=$HOME/$filename
     local_file=$original_file.local
     if [ ! "$original_file" -ef "$dotfile" ] ; then
-        [ -e "$original_file" ] && mv "$original_file" "$local_file"
-        touch "$local_file"
-        ln -s "$dotfile" "$original_file"
+        [ -e "$original_file" ] && commands+=("mv "$original_file" "$local_file"")
+        commands+=("touch "$local_file"")
+        commands+=("ln -s "$dotfile" "$original_file"")
     fi
 done
 
@@ -39,3 +40,7 @@ function set_up_auto_pull {
 
 set_up_auto_pull
 
+for cmd in "${commands[@]}"
+do
+    echo $cmd
+done

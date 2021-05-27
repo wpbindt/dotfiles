@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 repo=$(cd "$(dirname "$0")"; pwd)
 dotfiles="$repo/dotfiles"
+
+# Store commands to be executed in an array
+# so we can decide at the end of the script
+# if we want to execute or just print them.
 commands=()
 
 function list_dotfile_contents {
@@ -44,9 +48,9 @@ for cmd in "${commands[@]}"
 do
     set -o noglob
     echo $cmd
-    if [ -z $1 ] ; then
-        eval $cmd
-    fi
+    # A nontrivial positional argument means we do
+    # a dry run, so no command should be executed.
+    [ -z $1 ] && eval $cmd
     set +o noglob
 done
 

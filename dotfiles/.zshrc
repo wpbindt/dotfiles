@@ -40,7 +40,7 @@ alias grep="grep --color=always"
 
 alias firefox="firefox 2>/dev/null 1>/dev/null &"
 
-alias jupyter="jupyter notebook --NotebookApp.token='' --NotebookApp.password='' 2>/dev/null 1/dev/null &"
+alias jupyter="jupyter notebook --NotebookApp.token='' --NotebookApp.password='' 2>/dev/null 1>/dev/null &"
 
 alias date="date | sed -E 's/ [0-9]{2}:.*//'"
 alias datetime="/bin/date"

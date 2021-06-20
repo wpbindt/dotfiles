@@ -10,3 +10,5 @@
 [core]
     pager = less -r
 
+[init]
+	defaultBranch = main

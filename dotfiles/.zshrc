@@ -20,6 +20,17 @@ source $ZSH/oh-my-zsh.sh
 # Own stuff                         #
 #####################################
 
+# prompt
+if [ -z $SSH_CONNECTION ];
+then
+    lambda_default_color=white
+else
+    lambda_default_color=magenta
+fi
+prompt_lambda='%(?.%F{'$lambda_default_color'}.%F{red})λ%f'
+PROMPT=$prompt_lambda' %~/ $(git_prompt_info)%{$reset_color%}'
+
+
 # vi-like keybindings
 bindkey -v
 

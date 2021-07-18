@@ -1,6 +1,16 @@
 #!/usr/bin/env bash
-set -e
-set -o pipefail
+set -eo pipefail
+
+if [ -n "$1" ]; then
+    if [ "$1" = "-d" ]; then
+        echo performing dry run
+        dry_run=1
+    else
+        echo illegal option $1
+        exit 1
+    fi
+fi
+
 repo=$(cd "$(dirname "$0")"; pwd)
 dotfiles="$repo/dotfiles"
 
@@ -52,7 +62,7 @@ do
     echo $cmd
     # A nontrivial positional argument means we do
     # a dry run, so no command should be executed.
-    [ -z $1 ] && eval $cmd
+    [ -z $dry_run ] && eval $cmd
     set +o noglob
 done
 

@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 set -eo pipefail
 
+# parse options in a clunky way because 
+# getopts makes it hard to distinguish
+# between illegal and no options
 if [ -n "$1" ]; then
     if [ "$1" = "-d" ]; then
         echo performing dry run
@@ -60,8 +63,6 @@ for cmd in "${commands[@]}"
 do
     set -o noglob
     echo $cmd
-    # A nontrivial positional argument means we do
-    # a dry run, so no command should be executed.
     [ -z $dry_run ] && eval $cmd
     set +o noglob
 done

@@ -1,14 +1,14 @@
 [user]
-	email = wesselbindt@gmail.com
-	name = wpbindt
+    email = wesselbindt@gmail.
+    name = wpbindt
 [pull]
-	rebase = false
-[include]
-	path = ~/.gitconfig.local
+    rebase = false
 [color]
     ui = true
 [core]
     pager = less -r
-
 [init]
-	defaultBranch = main
+    defaultBranch = main
+[include]
+    path = ~/.gitconfig.local
+

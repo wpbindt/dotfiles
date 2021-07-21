@@ -1,5 +1,5 @@
 # dotfiles
-Configuration files for stuff on Linux. To set this up, ensure `zsh` and `oh-my-zsh` are installed, and that `git` is configured. Then clone this repo, and run
+Configuration files for stuff on Linux. To set this up, ensure `zsh` and `oh-my-zsh` are installed, and that `git` is configured. Then clone this repo, and run (if you want to do a dry run, add `-d`)
 ```
 $ /wherever/you/cloned/this/repo/to/bootstrap.sh
 ```

@@ -28,4 +28,5 @@ fi
 
 setxkbmap -option caps:escape
 
-source .profile.local
+source "$HOME/.profile.local"
+

@@ -236,9 +236,12 @@ myLogHook = return ()
 -- per-workspace layout choices.
 --
 -- set WMName to "LG3D" to make java swing apps work (e.g., pycharm)
+-- run nitrogen to set the wallpaper
+-- run compton for smoother graphics
 myStartupHook = do
         setWMName "LG3D"
         spawnOnce "nitrogen --restore &"
+        spawnOnce "compton &"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.

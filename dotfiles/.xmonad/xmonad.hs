@@ -239,7 +239,6 @@ myStartupHook = do
         setWMName "LG3D" -- allow java swing apps (e.g., pycharm) to run
         spawnOnce "nitrogen --restore &" -- set background image
         spawnOnce "compton &" -- smoother graphics
-        spawnOnce "setxkbmap -option caps:escape" -- remap caps lock to escape
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.

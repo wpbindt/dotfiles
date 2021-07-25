@@ -235,13 +235,11 @@ myLogHook = return ()
 -- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
 -- per-workspace layout choices.
 --
--- set WMName to "LG3D" to make java swing apps work (e.g., pycharm)
--- run nitrogen to set the wallpaper
--- run compton for smoother graphics
 myStartupHook = do
-        setWMName "LG3D"
-        spawnOnce "nitrogen --restore &"
-        spawnOnce "compton &"
+        setWMName "LG3D" -- allow java swing apps (e.g., pycharm) to run
+        spawnOnce "nitrogen --restore &" -- set background image
+        spawnOnce "compton &" -- smoother graphics
+        spawnOnce "setxkbmap -option caps:escape" -- remap caps lock to escape
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.

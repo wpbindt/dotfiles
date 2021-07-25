@@ -1,5 +1,6 @@
 import XMonad
 import XMonad.Hooks.SetWMName
+import XMonad.Util.SpawnOnce
 import Data.Monoid
 import System.Exit
 
@@ -234,8 +235,10 @@ myLogHook = return ()
 -- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
 -- per-workspace layout choices.
 --
--- By default, do nothing.
-myStartupHook = setWMName "LG3D"
+-- set WMName to "LG3D" to make java swing apps work (e.g., pycharm)
+myStartupHook = do
+        setWMName "LG3D"
+        spawnOnce "nitrogen --restore &"
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.

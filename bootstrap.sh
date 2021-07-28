@@ -52,12 +52,8 @@ function add_midnight_cron_job {
     set +o noglob
 }
 
-function set_up_auto_pull {
-    pull_command="$(command -v git) --git-dir=$repo/.git --work-tree=$repo pull -q"
-    add_midnight_cron_job "$pull_command"
-}
-
-set_up_auto_pull
+pull_command="$(command -v git) --git-dir=$repo/.git --work-tree=$repo pull -q"
+add_midnight_cron_job "$pull_command"
 
 for cmd in "${commands[@]}"
 do

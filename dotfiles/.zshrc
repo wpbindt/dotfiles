@@ -54,7 +54,6 @@ alias jupyter="jupyter notebook --NotebookApp.token='' --NotebookApp.password=''
 
 alias date="date | sed -E 's/ [0-9]{2}:.*//'"
 alias datetime="/bin/date"
-alias battery="acpi | awk '{print \$4}' | sed 's/,//'"
 
 alias gp="git push"
 alias gs="git status"

@@ -1,25 +1,26 @@
-Config { font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*"
-       , additionalFonts = []
-       , borderColor = "black"
-       , border = TopB
-       , bgColor = "black"
-       , fgColor = "grey"
-       , alpha = 255
-       , position = Top
-       , textOffset = -1
-       , iconOffset = -1
-       , lowerOnStart = True
-       , pickBroadest = False
-       , persistent = False
-       , hideOnStart = False
-       , iconRoot = "."
-       , allDesktops = True
-       , overrideRedirect = True
-       , commands = [ Run Cpu ["-L","3","-H","50",
-                               "--normal","green","--high","red"] 10
-                    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
-                    ]
-       , sepChar = "%"
-       , alignSep = "}{"
-       , template = "%cpu% } { <fc=#ee9a00>%date%</fc>"
-       }
+Config { 
+    font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*", 
+    additionalFonts = [],
+    borderColor = "black",
+    border = TopB,
+    bgColor = "black",
+    fgColor = "grey",
+    alpha = 255,
+    position = Top,
+    textOffset = -1,
+    iconOffset = -1,
+    lowerOnStart = True,
+    pickBroadest = False,
+    persistent = False,
+    hideOnStart = False,
+    iconRoot = ".",
+    allDesktops = True,
+    overrideRedirect = True,
+    commands = [ 
+        Run Cpu ["-L","3","-H","50", "--normal","green","--high","red"] 10,
+        Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+    ],
+    sepChar = "%",
+    alignSep = "}{",
+    template = "%cpu% } { <fc=#ee9a00>%date%</fc>"
+}

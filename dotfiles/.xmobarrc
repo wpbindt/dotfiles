@@ -17,7 +17,7 @@ Config {
     overrideRedirect = True,
     commands = [ 
         Run Cpu ["-L","3","-H","50", "--normal","green","--high","red"] 10,
-        Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+        Run Date "%b %_d %H:%M:%S" "date" 10
     ],
     sepChar = "%",
     alignSep = "}{",

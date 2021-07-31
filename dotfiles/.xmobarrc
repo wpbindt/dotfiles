@@ -1,6 +1,5 @@
 Config { 
     font = "-misc-fixed-*-*-*-*-10-*-*-*-*-*-*-*", 
-    additionalFonts = [],
     borderColor = "black",
     border = TopB,
     bgColor = "black",

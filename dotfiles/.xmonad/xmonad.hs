@@ -1,4 +1,5 @@
 import XMonad
+import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
 import XMonad.Util.Run
@@ -199,8 +200,11 @@ myEventHook = mempty
 -- Perform an arbitrary action on each internal state change or X event.
 -- See the 'XMonad.Hooks.DynamicLog' extension for examples.
 --
-myLogHook = return ()
-
+myLogHook h = dynamicLogWithPP $ def
+  { ppLayout = wrap "(<fc=#e4b63c>" "</fc>)"
+  , ppCurrent = wrap "<fc=#b8473d>[</fc><fc=#7cac7a>" "</fc><fc=#b8473d>]</fc>"
+  , ppOutput = hPutStrLn h
+  }
 ------------------------------------------------------------------------
 -- Startup hook
 
@@ -220,17 +224,8 @@ myStartupHook = do
 -- Run xmonad with the settings you specify. No need to modify this.
 --
 main = do
-        xmproc <- spawnPipe "xmobar -x 0"
-        xmonad $ docks defaults
-
--- A structure containing your configuration settings, overriding
--- fields in the default config. Any you don't override, will
--- use the defaults defined in xmonad/XMonad/Config.hs
---
--- No need to modify this.
---
-defaults = def {
-      -- simple stuff
+    xmproc <- spawnPipe "xmobar -x 0"
+    xmonad $ docks $ def {
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
         clickJustFocuses   = myClickJustFocuses,
@@ -248,9 +243,10 @@ defaults = def {
         layoutHook         = myLayout,
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
-        logHook            = myLogHook,
+        logHook            = myLogHook xmproc,
         startupHook        = myStartupHook
     }
+
 
 -- | Finally, a copy of the default bindings in simple textual tabular format.
 help :: String

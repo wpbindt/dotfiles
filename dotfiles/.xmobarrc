@@ -18,9 +18,10 @@ Config {
     commands = [ 
         Run Cpu ["-L","3","-H","50", "--normal","green","--high","red"] 10,
         Run Date "%b %_d %H:%M:%S" "date" 10,
-        Run Com "battery" [] "" 120
+        Run Com "battery" [] "" 120,
+        Run StdinReader
     ],
     sepChar = "%",
     alignSep = "}{",
-    template = "%cpu% } { <fc=#ee9a00>%date%</fc> | %battery%"
+    template = "%cpu% | %StdinReader% } { <fc=#ee9a00>%date%</fc> | %battery%"
 }

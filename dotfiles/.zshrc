@@ -27,7 +27,7 @@ else
     lambda_default_color=magenta
 fi
 prompt_lambda='%(?.%F{'$lambda_default_color'}.%F{red})%Bλ%b%f'
-PROMPT=$prompt_lambda' %~/ $(git_prompt_info)%{$reset_color%}'
+PROMPT=$prompt_lambda' %2~/ $(git_prompt_info)%{$reset_color%}'
 
 # vi-like keybindings
 bindkey -v

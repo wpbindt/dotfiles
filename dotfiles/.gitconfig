@@ -10,7 +10,6 @@
     editor = vim
 [init]
     defaultBranch = main
-    templateDir = ~/.git-templates/git.git
 [include]
     path = ~/.gitconfig.local
 

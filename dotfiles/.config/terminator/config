@@ -1,0 +1,5 @@
+[profiles]
+  [[default]]
+    scrollbar_position='disabled'
+    scrollback_infinite=True
+

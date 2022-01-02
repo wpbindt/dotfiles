@@ -1,4 +1,6 @@
 fish_vi_key_bindings
-set fish_greeting
+function fish_greeting
+    fortune /usr/share/games/fortunes/fortunes
+end
 
 source $HOME/.config/fish/config.fish.local

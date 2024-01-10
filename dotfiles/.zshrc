@@ -46,7 +46,7 @@ alias rmdir="rm -ri"
 alias mv="mv -i"
 alias df="df -h"
 alias mkdir="mkdir -p"
-alias grep="grep --color=always"
+alias grep="grep --exclude-dir='.*' --color=always"
 
 alias firefox="firefox 2>/dev/null 1>/dev/null &"
 

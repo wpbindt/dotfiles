@@ -1,4 +1,4 @@
-OPTIONS=role:valkyrie
+OPTIONS=role:tourist
 OPTIONS=race:dwarf
 
 OPTIONS=showexp,showscore,time,color

@@ -1,5 +1,19 @@
+[global_config]
+  title_transmit_fg_color = "#241f31"
+  title_transmit_bg_color = "#ffffff"
+  title_receive_fg_color = "#000000"
+[keybindings]
 [profiles]
   [[default]]
-    scrollbar_position='disabled'
-    scrollback_infinite=True
-
+    cursor_color = "#aaaaaa"
+    scrollbar_position = hidden
+    scrollback_infinite = True
+[layouts]
+  [[default]]
+    [[[window0]]]
+      type = Window
+      parent = ""
+    [[[child1]]]
+      type = Terminal
+      parent = window0
+[plugins]

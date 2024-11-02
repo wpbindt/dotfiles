@@ -62,4 +62,3 @@ do
     [ -z $dry_run ] && eval $cmd
     set +o noglob
 done
-

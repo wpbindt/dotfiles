@@ -38,17 +38,13 @@ unsetopt correctall
 DISABLE_CORRECTION="true"
 
 alias q="exit"
-alias pls="sudo"
 alias ls="ls --color=always"
 alias ll="ls -l"
 alias rm="rm -i"
 alias rmdir="rm -ri"
 alias mv="mv -i"
-alias df="df -h"
 alias mkdir="mkdir -p"
 alias grep="grep --exclude-dir='.*' --color=always"
-
-alias firefox="firefox 2>/dev/null 1>/dev/null &"
 
 alias jupyter="jupyter notebook --NotebookApp.token='' --NotebookApp.password='' 2>/dev/null 1>/dev/null &"
 
@@ -58,8 +54,5 @@ alias datetime="/bin/date"
 alias gp="git push"
 alias gs="git status"
 
-alias doco="docker-compose"
-
 # Put box-specific config in .zshrc.local
 source "$HOME/.zshrc.local"
-

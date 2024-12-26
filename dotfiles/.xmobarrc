@@ -33,9 +33,10 @@ Config {
                                 -- charged status
                                 , "-i"	, "<fc=#006000>Charged</fc>"
                       ] 300
+        , Run Com "iwgetid" ["-r"] "networkid" 50
         , Run StdinReader
     ],
     sepChar = "%",
     alignSep = "}{",
-    template = "%cpu% | %StdinReader% } { <fc=orange>%date%</fc> | %battery%"
+    template = "%cpu% | %StdinReader% } { <fc=orange>%date%</fc> | %battery% | %networkid%"
 }

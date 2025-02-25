@@ -46,8 +46,6 @@ alias mv="mv -i"
 alias mkdir="mkdir -p"
 alias grep="grep --exclude-dir='.*' --color=always"
 
-alias jupyter="jupyter notebook --NotebookApp.token='' --NotebookApp.password='' 2>/dev/null 1>/dev/null &"
-
 alias date="date | sed -E 's/ [0-9]{2}:.*//'"
 alias datetime="/bin/date"
 

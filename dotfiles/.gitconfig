@@ -3,6 +3,8 @@
     name = Wessel Bindt
 [pull]
     rebase = false
+[push]
+    autoSetupRemote = true
 [color]
     ui = true
 [core]
@@ -11,5 +13,11 @@
 	excludesFile = ~/.gitignore.global
 [init]
     defaultBranch = main
+[diff]
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
+
 [include]
     path = ~/.gitconfig.local

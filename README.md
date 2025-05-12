@@ -1,7 +1,7 @@
 # dotfiles
 Configuration files for stuff on Linux. To set this up, ensure `zsh` and `oh-my-zsh` are installed, and that `git` is configured. Then clone this repo, and run (if you want to do a dry run, add `-d`)
 ```
-$ /wherever/you/cloned/this/repo/to/apply_configuration.sh
+$ /wherever/you/cloned/this/repo/to/apply_config.sh
 ```
 This script does the following:
 - back up local config files `.some_config` to `.some_config.local` in the same directory (first run only)

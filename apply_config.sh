@@ -43,17 +43,17 @@ do
     fi
 done
 
-function add_midnight_cron_job {
+function add_cron_job {
     set -o noglob
     # prevent duplication and clobbering by using
     # crontab -l, sort, and uniq
-    commands+=("(crontab -l ; echo '0 0 * * * $1') \
+    commands+=("(crontab -l ; echo '0 * * * * $1') \
         | sort - | uniq - | crontab -")
     set +o noglob
 }
 
 pull_command="$(command -v git) --git-dir=$repo/.git --work-tree=$repo pull -q"
-add_midnight_cron_job "$pull_command"
+add_cron_job "$pull_command"
 
 for cmd in "${commands[@]}"
 do

@@ -6,6 +6,7 @@ import XMonad.Util.Run
 import XMonad.Util.SpawnOnce
 import Data.Monoid
 import System.Exit
+import System.Environment
 
 import qualified XMonad.StackSet as W
 import qualified Data.Map        as M
@@ -209,11 +210,18 @@ myLogHook h = dynamicLogWithPP $ def
 -- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
 -- per-workspace layout choices.
 --
-myStartupHook = do
+myStartupHook :: [String] -> X()
+myStartupHook startUpApps = do
         setWMName "LG3D" -- allow java swing apps (e.g., pycharm) to run
         spawnOnce "nitrogen --restore &" -- set background image
         spawnOnce "compton &" -- smoother graphics
         spawnOnce "xbindkeys" -- set custom keybindings
+        mapM_ spawnOnce startUpApps
+
+findStartupApps :: IO [String]
+findStartupApps = do
+    home <- getEnv "HOME"
+    words <$> readFile (home ++ "/.startup_apps")
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.
@@ -222,6 +230,7 @@ myStartupHook = do
 --
 main = do
     xmproc <- spawnPipe "xmobar -x 0"
+    startupApps <- findStartupApps
     xmonad $ docks $ def {
         terminal           = myTerminal,
         focusFollowsMouse  = myFocusFollowsMouse,
@@ -241,6 +250,6 @@ main = do
         manageHook         = myManageHook,
         handleEventHook    = myEventHook,
         logHook            = myLogHook xmproc,
-        startupHook        = myStartupHook
+        startupHook        = myStartupHook startupApps
     }
 

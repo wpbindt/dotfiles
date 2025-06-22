@@ -1,4 +1,5 @@
 import XMonad
+import XMonad.Actions.SpawnOn
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Hooks.SetWMName
@@ -179,7 +180,9 @@ myManageHook = composeAll
     [ className =? "MPlayer"        --> doFloat
     , className =? "Gimp"           --> doFloat
     , resource  =? "desktop_window" --> doIgnore
-    , resource  =? "kdesktop"       --> doIgnore ]
+    , resource  =? "kdesktop"       --> doIgnore
+    , manageSpawn
+    ]
 
 ------------------------------------------------------------------------
 -- Event handling
@@ -210,18 +213,24 @@ myLogHook h = dynamicLogWithPP $ def
 -- with mod-q.  Used by, e.g., XMonad.Layout.PerWorkspace to initialize
 -- per-workspace layout choices.
 --
-myStartupHook :: [String] -> X()
+myStartupHook :: [(String, String)] -> X()
 myStartupHook startUpApps = do
         setWMName "LG3D" -- allow java swing apps (e.g., pycharm) to run
         spawnOnce "nitrogen --restore &" -- set background image
         spawnOnce "compton &" -- smoother graphics
         spawnOnce "xbindkeys" -- set custom keybindings
-        mapM_ spawnOnce startUpApps
+        mapM_ mySpawnOn startUpApps
 
-findStartupApps :: IO [String]
+mySpawnOn :: (String, String) -> X()
+mySpawnOn (app, workspace) = spawnOn workspace app
+
+findStartupApps :: IO [(String, String)]
 findStartupApps = do
     home <- getEnv "HOME"
-    words <$> readFile (home ++ "/.startup_apps")
+    map parseApp . lines <$> readFile (home ++ "/.startup_apps")
+
+parseApp :: String -> (String, String)
+parseApp app = (takeWhile (/= ':') app, tail . (dropWhile (/= ':')) $ app)
 
 ------------------------------------------------------------------------
 -- Now run xmonad with all the defaults we set up.

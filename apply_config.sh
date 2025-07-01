@@ -23,7 +23,7 @@ dotfiles="$repo/dotfiles"
 commands=()
 
 function list_dotfile_contents {
-    find "$dotfiles" -type "$1" -printf '%P\n'
+    find "$dotfiles" -type "$1" -exec basename {} \;
 }
 
 for subdir in $(list_dotfile_contents d)
@@ -39,7 +39,7 @@ do
     if [ ! "$original_file" -ef "$dotfile" ] ; then
         [ -e "$original_file" ] && commands+=("mv "$original_file" "$local_file"")
         commands+=("touch "$local_file"")
-        commands+=("ln -s "$dotfile" "$original_file"")
+        commands+=("ln -fs "$dotfile" "$original_file"")
     fi
 done
 

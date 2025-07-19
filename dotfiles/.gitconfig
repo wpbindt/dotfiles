@@ -2,7 +2,7 @@
     email = wesselbindt@gmail.com
     name = Wessel Bindt
 [pull]
-    rebase = false
+    rebase = true
 [push]
     autoSetupRemote = true
 [color]

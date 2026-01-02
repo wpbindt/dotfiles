@@ -7,6 +7,7 @@ Plug('rebelot/kanagawa.nvim')
 Plug('kyazdani42/nvim-tree.lua')
 Plug('kyazdani42/nvim-web-devicons')
 Plug('romgrk/barbar.nvim')
+Plug('nvim-lualine/lualine.nvim')
 
 vim.call('plug#end')
 
@@ -17,3 +18,5 @@ require "common"
 dofile("theme.lua")
 require "vimtree"
 require "barbar"
+-- underscore added for namespace shit
+require "lua_line"

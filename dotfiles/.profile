@@ -30,3 +30,5 @@ setxkbmap -option caps:escape
 
 source "$HOME/.profile.local"
 
+
+. "$HOME/.local/bin/env"

@@ -6,6 +6,7 @@ vim.call('plug#begin')
 Plug('rebelot/kanagawa.nvim')
 Plug('kyazdani42/nvim-tree.lua')
 Plug('kyazdani42/nvim-web-devicons')
+Plug('romgrk/barbar.nvim')
 
 vim.call('plug#end')
 
@@ -15,3 +16,4 @@ package.path = home .. "/.config/nvim/?.lua;" .. package.path
 require "common"
 dofile("theme.lua")
 require "vimtree"
+require "barbar"

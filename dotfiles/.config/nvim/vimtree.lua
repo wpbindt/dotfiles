@@ -14,3 +14,5 @@ require("nvim-tree").setup({
     group_empty = true,
   },
 })
+
+vim.keymap.set('n', '<S-Tab>', ':NvimTreeOpen<CR>', { noremap = true, silent = true })

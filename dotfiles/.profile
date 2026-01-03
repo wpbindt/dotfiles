@@ -30,5 +30,6 @@ setxkbmap -option caps:escape
 
 source "$HOME/.profile.local"
 
+export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
 . "$HOME/.local/bin/env"

@@ -15,7 +15,7 @@ home = os.getenv("HOME")
 package.path = home .. "/.config/nvim/?.lua;" .. package.path
 
 require "common"
-dofile("theme.lua")
+dofile(home .. "/.config/nvim/theme.lua")
 require "vimtree"
 require "barbar"
 -- underscore added for namespace shit

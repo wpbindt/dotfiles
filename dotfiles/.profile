@@ -33,3 +33,4 @@ source "$HOME/.profile.local"
 export PATH="$PATH:/opt/nvim-linux-x86_64/bin"
 
 . "$HOME/.local/bin/env"
+. "$HOME/.cargo/env"

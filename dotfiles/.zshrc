@@ -51,6 +51,7 @@ alias datetime="/bin/date"
 
 alias gp="git push"
 alias gs="git status"
+unalias g
 
 # Put box-specific config in .zshrc.local
 source "$HOME/.zshrc.local"
